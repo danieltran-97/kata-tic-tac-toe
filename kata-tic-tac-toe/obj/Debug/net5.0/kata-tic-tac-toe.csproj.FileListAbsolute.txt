@@ -1,0 +1,15 @@
+/Users/daniel.tran/katas/kata-tic-tac-toe/kata-tic-tac-toe/bin/Debug/net5.0/kata-tic-tac-toe.deps.json
+/Users/daniel.tran/katas/kata-tic-tac-toe/kata-tic-tac-toe/bin/Debug/net5.0/kata-tic-tac-toe.dll
+/Users/daniel.tran/katas/kata-tic-tac-toe/kata-tic-tac-toe/bin/Debug/net5.0/ref/kata-tic-tac-toe.dll
+/Users/daniel.tran/katas/kata-tic-tac-toe/kata-tic-tac-toe/bin/Debug/net5.0/kata-tic-tac-toe.pdb
+/Users/daniel.tran/katas/kata-tic-tac-toe/kata-tic-tac-toe/obj/Debug/net5.0/kata-tic-tac-toe.csprojAssemblyReference.cache
+/Users/daniel.tran/katas/kata-tic-tac-toe/kata-tic-tac-toe/obj/Debug/net5.0/kata-tic-tac-toe.GeneratedMSBuildEditorConfig.editorconfig
+/Users/daniel.tran/katas/kata-tic-tac-toe/kata-tic-tac-toe/obj/Debug/net5.0/kata-tic-tac-toe.AssemblyInfoInputs.cache
+/Users/daniel.tran/katas/kata-tic-tac-toe/kata-tic-tac-toe/obj/Debug/net5.0/kata-tic-tac-toe.AssemblyInfo.cs
+/Users/daniel.tran/katas/kata-tic-tac-toe/kata-tic-tac-toe/obj/Debug/net5.0/kata-tic-tac-toe.csproj.CoreCompileInputs.cache
+/Users/daniel.tran/katas/kata-tic-tac-toe/kata-tic-tac-toe/obj/Debug/net5.0/kata-tic-tac-toe.dll
+/Users/daniel.tran/katas/kata-tic-tac-toe/kata-tic-tac-toe/obj/Debug/net5.0/ref/kata-tic-tac-toe.dll
+/Users/daniel.tran/katas/kata-tic-tac-toe/kata-tic-tac-toe/obj/Debug/net5.0/kata-tic-tac-toe.pdb
+/Users/daniel.tran/katas/kata-tic-tac-toe/kata-tic-tac-toe/bin/Debug/net5.0/kata-tic-tac-toe.runtimeconfig.json
+/Users/daniel.tran/katas/kata-tic-tac-toe/kata-tic-tac-toe/bin/Debug/net5.0/kata-tic-tac-toe.runtimeconfig.dev.json
+/Users/daniel.tran/katas/kata-tic-tac-toe/kata-tic-tac-toe/obj/Debug/net5.0/kata-tic-tac-toe.genruntimeconfig.cache

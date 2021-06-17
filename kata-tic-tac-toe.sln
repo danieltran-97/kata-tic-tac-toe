@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kata-tic-tac-toe-test", "kata-tic-tac-toe-test\kata-tic-tac-toe-test.csproj", "{43342E98-81F8-471B-8900-B2A1B9927BEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kata-tic-tac-toe", "kata-tic-tac-toe\kata-tic-tac-toe.csproj", "{D64B3468-F7FF-4F73-980E-B7856AFCE7AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43342E98-81F8-471B-8900-B2A1B9927BEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43342E98-81F8-471B-8900-B2A1B9927BEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43342E98-81F8-471B-8900-B2A1B9927BEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43342E98-81F8-471B-8900-B2A1B9927BEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D64B3468-F7FF-4F73-980E-B7856AFCE7AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D64B3468-F7FF-4F73-980E-B7856AFCE7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D64B3468-F7FF-4F73-980E-B7856AFCE7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D64B3468-F7FF-4F73-980E-B7856AFCE7AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
