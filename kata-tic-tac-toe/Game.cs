@@ -33,15 +33,32 @@ namespace kata_tic_tac_toe
 
         private void _placeMove(char player)
         {
-            Console.Write($"Player {player} enter a coord x,y to place your {player}:  ");
-            var coordinates = Console.ReadLine().Split(",");
-            var xAxis = int.Parse(coordinates[0]) - 1;
-            var yAxis = int.Parse(coordinates[1]) - 1;
+            var success = false;
+            var xAxis = 0;
+            var yAxis = 0;
+            
+            while (!success)
+            {
+                var coordinates = GetCoordinateFromConsole($"Player {(player == 'X' ? '1' : '2')} enter a coord x,y to place your {player} or enter 'q' to give up:  ");
+                xAxis = int.Parse(coordinates[0]) - 1;
+                yAxis = int.Parse(coordinates[1]) - 1;
+                success = Board.BoardMatrix[xAxis, yAxis] == '.';
+                
+                if (!success)
+                {
+                    Console.WriteLine("Oh no, a piece is already at this place! Try again...");
+                }
+            }
             
             Board.BoardMatrix[xAxis, yAxis] = player;
-            
-            
+            Console.WriteLine("Move accepted, here's the current board:");
             Board.PrintBoard();
+        }
+
+        private string[] GetCoordinateFromConsole(string message)
+        {
+            Console.Write(message);
+            return Console.ReadLine().Split(",");
         }
     }
 }
