@@ -9,21 +9,20 @@ namespace kata_tic_tac_toe
 
         private const char PlayerO = 'O';
 
-        public static bool GameOver = false;
+        private static bool _gameOver = false;
         
         public void Play()
         {
             NewGame();
-            //while loop
-            PlaceMove(PlayerX);
-            PlaceMove(PlayerO);
-            PlaceMove(PlayerX);
-            PlaceMove(PlayerO);
-            PlaceMove(PlayerX);
-            PlaceMove(PlayerO);
-            PlaceMove(PlayerX);
-            PlaceMove(PlayerO);
-            PlaceMove(PlayerX);
+            var player = PlayerX;
+            var spotsFilled = 0;
+
+            while (!_gameOver || spotsFilled < 9)
+            {
+                PlaceMove(player);
+                spotsFilled++;
+                player = ChangeTurn(player);
+            }
 
             Console.WriteLine("Game over");
         }
@@ -60,6 +59,18 @@ namespace kata_tic_tac_toe
             Board.PrintBoard();
         }
 
+        private static char ChangeTurn(char currentPlayer)
+        {
+            if (currentPlayer == 'X')
+            {
+                return 'O';
+            }
+            else
+            {
+                return 'X';
+            }
+        }
+
         private static string[] GetCoordinateFromConsole(string message)
         {
             Console.Write(message);
@@ -80,7 +91,7 @@ namespace kata_tic_tac_toe
                       (board[1,0] == player && board[1,0] == board [1,1] && board[1,0] == board [1,2]);
             if (win)
             {
-                GameOver = true;
+                _gameOver = true;
             }
 
             return win;
