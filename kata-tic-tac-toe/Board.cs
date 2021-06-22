@@ -30,5 +30,7 @@ namespace kata_tic_tac_toe
                 Console.WriteLine();
             }
         }
+        //keep record of played moves
+
     }
 }

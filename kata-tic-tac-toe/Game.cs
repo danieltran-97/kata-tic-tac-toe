@@ -1,37 +1,40 @@
 using System;
+using System.Linq;
 
 namespace kata_tic_tac_toe
 {
     public class Game
     {
-        private char _playerX = 'X';
+        private const char PlayerX = 'X';
 
-        private char _playerO = 'O';
+        private const char PlayerO = 'O';
 
+        public static bool GameOver = false;
+        
         public void Play()
         {
             NewGame();
-            
-            _placeMove(_playerX);
-            _placeMove(_playerO);
-            _placeMove(_playerX);
-            _placeMove(_playerO);
-            _placeMove(_playerX);
-            _placeMove(_playerO);
-            _placeMove(_playerX);
-            _placeMove(_playerO);
-            _placeMove(_playerX);
-            
+            //while loop
+            PlaceMove(PlayerX);
+            PlaceMove(PlayerO);
+            PlaceMove(PlayerX);
+            PlaceMove(PlayerO);
+            PlaceMove(PlayerX);
+            PlaceMove(PlayerO);
+            PlaceMove(PlayerX);
+            PlaceMove(PlayerO);
+            PlaceMove(PlayerX);
+
             Console.WriteLine("Game over");
         }
 
-        private void NewGame()
+        private static void NewGame()
         {
             Board.InitializeBoard();
             Board.PrintBoard();
         }
 
-        private void _placeMove(char player)
+        private static void PlaceMove(char player)
         {
             var success = false;
             var xAxis = 0;
@@ -51,14 +54,41 @@ namespace kata_tic_tac_toe
             }
             
             Board.BoardMatrix[xAxis, yAxis] = player;
-            Console.WriteLine("Move accepted, here's the current board:");
+            
+            Console.WriteLine($"Move accepted, here's the current board:");
+
             Board.PrintBoard();
         }
 
-        private string[] GetCoordinateFromConsole(string message)
+        private static string[] GetCoordinateFromConsole(string message)
         {
             Console.Write(message);
             return Console.ReadLine().Split(",");
         }
+
+        private static bool Winner(char[,] board)
+        {
+            // Check to see if board[i,j] =  'X' or 'O'
+            // See how to use linq here
+            var win = (board[0,0] == board [0,1] && board[0,0] == board [0,2]) ||
+                      (board[0,0] == board [1,1] && board[0,0] == board [2,2]) ||
+                      (board[0,0] == board [1,0] && board[0,0] == board [2,0]) ||
+                      (board[2,0] == board [2,1] && board[2,0] == board [2,2]) ||
+                      (board[2,0] == board [1,1] && board[0,0] == board [0,2]) ||
+                      (board[0,2] == board [1,2] && board[0,2] == board [2,2]) ||
+                      (board[0,1] == board [1,1] && board[0,1] == board [2,1]) ||
+                      (board[1,0] == board [1,1] && board[1,0] == board [1,2]);
+            if (win)
+            {
+                GameOver = true;
+            }
+
+            return win;
+        }
+
+        // private static bool CheckWinner(char[,] board)
+        // {
+        //     // board.select(coordinate => coordinate.row).any(Count => Count == 3)
+        // }
     }
 }
