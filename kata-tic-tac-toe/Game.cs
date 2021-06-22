@@ -55,7 +55,7 @@ namespace kata_tic_tac_toe
             
             Board.BoardMatrix[xAxis, yAxis] = player;
             
-            Console.WriteLine($"Move accepted, here's the current board:");
+            Console.WriteLine($"Move accepted, {(Winner(Board.BoardMatrix, player) ? "well done you've won the game!" : "here's the current board:")}");
 
             Board.PrintBoard();
         }
@@ -66,18 +66,18 @@ namespace kata_tic_tac_toe
             return Console.ReadLine().Split(",");
         }
 
-        private static bool Winner(char[,] board)
+        private static bool Winner(char[,] board, char player)
         {
             // Check to see if board[i,j] =  'X' or 'O'
             // See how to use linq here
-            var win = (board[0,0] == board [0,1] && board[0,0] == board [0,2]) ||
-                      (board[0,0] == board [1,1] && board[0,0] == board [2,2]) ||
-                      (board[0,0] == board [1,0] && board[0,0] == board [2,0]) ||
-                      (board[2,0] == board [2,1] && board[2,0] == board [2,2]) ||
-                      (board[2,0] == board [1,1] && board[0,0] == board [0,2]) ||
-                      (board[0,2] == board [1,2] && board[0,2] == board [2,2]) ||
-                      (board[0,1] == board [1,1] && board[0,1] == board [2,1]) ||
-                      (board[1,0] == board [1,1] && board[1,0] == board [1,2]);
+            var win = (board[0,0] == player && board[0,0] == board [0,1] && board[0,0] == board [0,2]) ||
+                      (board[0,0] == player && board[0,0] == board [1,1] && board[0,0] == board [2,2]) ||
+                      (board[0,0] == player && board[0,0] == board [1,0] && board[0,0] == board [2,0]) ||
+                      (board[2,0] == player && board[2,0] == board [2,1] && board[2,0] == board [2,2]) ||
+                      (board[2,0] == player && board[2,0] == board [1,1] && board[0,0] == board [0,2]) ||
+                      (board[0,2] == player && board[0,2] == board [1,2] && board[0,2] == board [2,2]) ||
+                      (board[0,1] == player && board[0,1] == board [1,1] && board[0,1] == board [2,1]) ||
+                      (board[1,0] == player && board[1,0] == board [1,1] && board[1,0] == board [1,2]);
             if (win)
             {
                 GameOver = true;
@@ -86,9 +86,5 @@ namespace kata_tic_tac_toe
             return win;
         }
 
-        // private static bool CheckWinner(char[,] board)
-        // {
-        //     // board.select(coordinate => coordinate.row).any(Count => Count == 3)
-        // }
     }
 }
