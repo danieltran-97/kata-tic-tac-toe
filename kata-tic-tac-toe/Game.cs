@@ -17,7 +17,7 @@ namespace kata_tic_tac_toe
             var player = PlayerX;
             var spotsFilled = 0;
 
-            while (!_gameOver || spotsFilled < 9)
+            while (!_gameOver && spotsFilled < 9)
             {
                 PlaceMove(player);
                 spotsFilled++;
@@ -41,7 +41,7 @@ namespace kata_tic_tac_toe
             
             while (!success)
             {
-                var coordinates = GetCoordinateFromConsole($"Player {(player == 'X' ? '1' : '2')} enter a coord x,y to place your {player} or enter 'q' to give up:  ");
+                var coordinates = GetCoordinateFromConsole($"Player {(player == PlayerX ? '1' : '2')} enter a coord x,y to place your {player} or enter 'q' to give up:  ");
                 xAxis = int.Parse(coordinates[0]) - 1;
                 yAxis = int.Parse(coordinates[1]) - 1;
                 success = Board.BoardMatrix[xAxis, yAxis] == '.';
@@ -61,13 +61,13 @@ namespace kata_tic_tac_toe
 
         private static char ChangeTurn(char currentPlayer)
         {
-            if (currentPlayer == 'X')
+            if (currentPlayer == PlayerX)
             {
-                return 'O';
+                return PlayerO;
             }
             else
             {
-                return 'X';
+                return PlayerX;
             }
         }
 
@@ -85,7 +85,7 @@ namespace kata_tic_tac_toe
                       (board[0,0] == player && board[0,0] == board [1,1] && board[0,0] == board [2,2]) ||
                       (board[0,0] == player && board[0,0] == board [1,0] && board[0,0] == board [2,0]) ||
                       (board[2,0] == player && board[2,0] == board [2,1] && board[2,0] == board [2,2]) ||
-                      (board[2,0] == player && board[2,0] == board [1,1] && board[0,0] == board [0,2]) ||
+                      (board[2,0] == player && board[2,0] == board [1,1] && board[2,0] == board [0,2]) ||
                       (board[0,2] == player && board[0,2] == board [1,2] && board[0,2] == board [2,2]) ||
                       (board[0,1] == player && board[0,1] == board [1,1] && board[0,1] == board [2,1]) ||
                       (board[1,0] == player && board[1,0] == board [1,1] && board[1,0] == board [1,2]);
