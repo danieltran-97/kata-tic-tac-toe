@@ -1,20 +1,26 @@
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace kata_tic_tac_toe
 {
     public class Game
     {
-        private const char PlayerX = 'X';
+        private static Player _player1;
 
-        private const char PlayerO = 'O';
+        private static Player _player2;
 
         private static bool _gameOver = false;
-        
+
+        public Game()
+        {
+            _player1 = new Player("Player 1", 'X');
+            _player2 = new Player("Player 2 ", 'O');
+        }
         public void Play()
         {
             NewGame();
-            var player = PlayerX;
+            var player = _player1;
             var spotsFilled = 0;
 
             while (!_gameOver && spotsFilled < 9)
@@ -33,7 +39,7 @@ namespace kata_tic_tac_toe
             Board.PrintBoard();
         }
 
-        private static void PlaceMove(char player)
+        private static void PlaceMove(Player player)
         {
             var success = false;
             var xAxis = 0;
@@ -41,7 +47,7 @@ namespace kata_tic_tac_toe
             
             while (!success)
             {
-                var coordinates = GetCoordinateFromConsole($"Player {(player == PlayerX ? '1' : '2')} enter a coord x,y to place your {player} or enter 'q' to give up:  ");
+                var coordinates = GetCoordinateFromConsole($"{player.Name} enter a coord x,y to place your {player.Marker} or enter 'q' to give up:  ");
                 xAxis = int.Parse(coordinates[0]) - 1;
                 yAxis = int.Parse(coordinates[1]) - 1;
                 success = Board.BoardMatrix[xAxis, yAxis] == '.';
@@ -52,29 +58,44 @@ namespace kata_tic_tac_toe
                 }
             }
             
-            Board.BoardMatrix[xAxis, yAxis] = player;
+            Board.BoardMatrix[xAxis, yAxis] = player.Marker;
             
-            Console.WriteLine($"Move accepted, {(Winner(Board.BoardMatrix, player) ? "well done you've won the game!" : "here's the current board:")}");
+            Console.WriteLine($"Move accepted, {(Winner(Board.BoardMatrix, player.Marker) ? "well done you've won the game!" : "here's the current board:")}");
 
             Board.PrintBoard();
         }
 
-        private static char ChangeTurn(char currentPlayer)
+        private static Player ChangeTurn(Player currentPlayer)
         {
-            if (currentPlayer == PlayerX)
+            if (currentPlayer == _player1)
             {
-                return PlayerO;
+                return _player2;
             }
             else
             {
-                return PlayerX;
+                return _player1;
             }
         }
 
         private static string[] GetCoordinateFromConsole(string message)
         {
-            Console.Write(message);
-            return Console.ReadLine().Split(",");
+            var success = false;
+            var input = string.Empty;
+            var reg = new Regex("^[1-3],[1-3]$");
+            
+            while (!success)
+            {
+                Console.Write(message);
+                input = Console.ReadLine();
+                success = reg.IsMatch(input);
+
+                if (!success)
+                {
+                    Console.WriteLine("Please enter valid coordinates");
+                }
+            }
+            
+            return input.Split(",");
         }
 
         private static bool Winner(char[,] board, char player)

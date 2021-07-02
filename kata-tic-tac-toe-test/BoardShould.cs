@@ -7,7 +7,7 @@ namespace kata_tic_tac_toe
     public class BoardShould
     {
         [Fact]
-        public void InitializeBoard()
+        public void InitializeBoardTest()
         {
             var newBoard = Board.InitializeBoard();
 
