@@ -87,7 +87,7 @@ namespace kata_tic_tac_toe
             {
                 Console.Write(message);
                 input = Console.ReadLine();
-                success = reg.IsMatch(input);
+                success = reg.IsMatch(input) || input == "q";
 
                 if (!success)
                 {
