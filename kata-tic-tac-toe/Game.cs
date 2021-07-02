@@ -93,6 +93,12 @@ namespace kata_tic_tac_toe
                 {
                     Console.WriteLine("Please enter valid coordinates");
                 }
+
+                if (input == "q")
+                {
+                    Console.WriteLine("You have given up");
+                    Environment.Exit(1);
+                }
             }
             
             return input.Split(",");
